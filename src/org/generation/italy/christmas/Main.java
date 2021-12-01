@@ -1,6 +1,7 @@
 package org.generation.italy.christmas;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -11,16 +12,16 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		
 		gifts = new ArrayList<String>();
-		boolean continua = false;
+		boolean continua = true;
 		
-		while(continua == false) {
+		while(continua == true) {
 			System.out.print("Inserisci il regalo che vuoi: ");
 			gifts.add(scanner.nextLine());
 			System.out.println("La lista è composta da: " + gifts.size() + " elementi");
 			System.out.print("Vuoi inserire altro? (s/n)");
 			String scelta = scanner.nextLine();
 			if(scelta.equalsIgnoreCase("n")) {
-				continua = true;
+				continua = false;
 			} else if(scelta.equalsIgnoreCase("s")) {
 				
 			} else {
@@ -29,7 +30,7 @@ public class Main {
 		}
 		
 		System.out.println("La tua lista è composta da: ");
-		
+		Collections.sort(gifts);
 		for(int i = 0; i < gifts.size(); i++) {
 			System.out.println(gifts.get(i));
 		}
